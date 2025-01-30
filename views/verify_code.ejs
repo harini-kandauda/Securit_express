@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Vérification compte</title>
+</head>
+<body>
+    <div class="login-container">
+        <div>
+        <img src="/assets/images/logo.png">
+        </div>
+        <h2>Pour finaliser la création de votre compte, vérifiez votre boîte mail et tapez le code de confirmation</h2>
+        <form action="/verify_code" method="POST">
+            <div class="form-group mb-2">
+                <label for="code-confirmation">Code de confirmation</label>
+                <div class="input-container">
+                <input name="code" type="text" id="code" placeholder="Ex: 12345" required>
+                <input type="hidden" name="email" value ="<%=email%>">
+            </div>
+            <br>
+            </div>
+            <button type="submit" class="large-button">Continuer</button>
+            <br>
+        <div class="error">
+            <p><%= error_message %></p>
+        </div>    
+        </form>
+    </div>
+</body>
+</html>

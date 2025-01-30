@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Page Visite</title>
+   <link rel="stylesheet" href="assets/css/style2.css">
+   <!-- Lien vers FontAwesome pour les icônes -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="login-container">
+    <!-- En-tête avec SECURIT -->
+    <header>
+      <div class="securit-header">
+        <img src='/assets/images/logo.png' alt="Logo SECURIT"/>
+      </div>
+    </header>
+  
+    <!-- Contenu principal -->
+    <main>
+      <h2>Bonjour, <%= user.email %>,</h2>
+      <br>
+      <!-- Titre de la page -->
+      <h2>Visites</h2>
+  
+      <!-- Barre de recherche + bouton -->
+      <div class="visit_search">
+        <input type="text" class="visit_search2" id="visit_search" placeholder="Rechercher...">
+        <a href="/create-visit" class="add-button">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+      </div>
+  
+      <!-- Tableau des visites -->
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Entreprise</th>
+            <th></th> <!-- Colonne pour les flèches -->
+          </tr>
+        </thead>
+        <tbody>
+          <% for (visit of visits) { %>
+          <tr>
+            <td><%= visit.date.toLocaleDateString() %></td>
+            <td><%= visit.company.name %></td>
+            <td class="arrow-cell">
+              <a href="#" class="arrow-link"><i class="fa-solid fa-arrow-right"></i></a>
+            </td>
+          </tr>
+          <% }; %>
+        </tbody>
+      </table>
+      <br>
+      <div class="nav-bar">
+        <div class="nav-item active">
+          <span>Visites</span>
+        </div>
+        <div class="nav-item">
+          <span>Entreprises</span>
+        </div>
+        <div class="nav-item">
+          <span>Réglages</span>
+        </div>
+      </div>
+    </main>
+    </div>
+  </body>
+</html>
